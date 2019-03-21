@@ -9,7 +9,7 @@ void Ordenar(int *c, int *d);// v)
 
 int main(void)
 {
-	int num, resul, var, val1, val2, pri, seg;
+	int num, resul, var, val1, val2, pri, seg, par1, par2, n, i;
 	printf("Ingresar un numero: ");
 	scanf("%d", &num);
 	resul = Cuadrado(num);
@@ -36,7 +36,16 @@ int main(void)
 	scanf("%d", &seg);
 	Ordenar(&pri, &seg);
 	printf("\nValor Menor: %d\nValor Mayor: %d\n", pri, seg);// v)
-
+	printf("\n----------------------------------------\n");
+	printf("Ingrese la cantidad de veces que quiere ingresar pares de valores: ");
+	scanf("%d", &n);
+	for (i = 0; i < n; i++){
+		printf("Ingrese dos valores: ");
+		scanf("%d", &pri);
+		scanf(" %d", &seg);
+		Ordenar(&pri, &seg);
+		printf("\nValor Menor: %d\nValor Mayor: %d\n", pri, seg);// iv)
+	}
 
 	return 0;
 }
@@ -63,7 +72,7 @@ void Invertir(int *a, int *b){ // iv)
 
 void Ordenar(int *c, int *d){ // v)
 	int aux;
-	if (d < c){
+	if (*d < *c){
 		aux = *c;
 		*c = *d;
 		*d = aux;
